@@ -2,9 +2,59 @@
 
 [ext_resource type="Texture2D" uid="uid://c3ek7dkj6e6xu" path="res://Assets/lotus_sprout_frames/00.png" id="1_7fvev"]
 [ext_resource type="Script" uid="uid://co2wdm5suk6pg" path="res://lotus_sprout.gd" id="2_wa6o0"]
+[ext_resource type="Texture2D" uid="uid://d30i0sagwtcj0" path="res://Assets/lotus_sprout_frames/10.png" id="3_ey7s0"]
+[ext_resource type="Texture2D" uid="uid://cw7jnr2gb7j7s" path="res://Assets/lotus_sprout_frames/01.png" id="3_lrs7x"]
+[ext_resource type="Texture2D" uid="uid://bfp0wgb7n5tkt" path="res://Assets/lotus_sprout_frames/20.png" id="4_irftk"]
+[ext_resource type="Texture2D" uid="uid://b0v35e7lrucug" path="res://Assets/lotus_sprout_frames/11.png" id="6_jyv7p"]
+[ext_resource type="Texture2D" uid="uid://cb17l05cnctrb" path="res://Assets/lotus_sprout_frames/21.png" id="7_rf4kr"]
+[ext_resource type="Texture2D" uid="uid://rm7smehnow6e" path="res://Assets/lotus_sprout_frames/02.png" id="8_y7a4v"]
+[ext_resource type="Texture2D" uid="uid://rygqb2er51u" path="res://Assets/lotus_sprout_frames/12.png" id="9_loavf"]
+
+[sub_resource type="Animation" id="Animation_m2fwi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lotus_sprout:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_7fvev")]
+}
+
+[sub_resource type="Animation" id="Animation_el4n2"]
+resource_name = "grow"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lotus_sprout:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_7fvev"), ExtResource("3_ey7s0"), ExtResource("4_irftk"), ExtResource("3_lrs7x"), ExtResource("6_jyv7p"), ExtResource("7_rf4kr"), ExtResource("8_y7a4v"), ExtResource("9_loavf")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5gj2m"]
+_data = {
+&"RESET": SubResource("Animation_m2fwi"),
+&"grow": SubResource("Animation_el4n2")
+}
 
 [node name="Node2D" type="Node2D" unique_id=1174983582]
 
 [node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516]
+position = Vector2(320, 240)
+scale = Vector2(5, 5)
 texture = ExtResource("1_7fvev")
 script = ExtResource("2_wa6o0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lotus_sprout" unique_id=682175387]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5gj2m")

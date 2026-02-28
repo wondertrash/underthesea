@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://t8du3py5fg7u"]
+
+[ext_resource type="Script" uid="uid://do0syn7oxuyk1" path="res://mainmenu.gd" id="1_cmhrf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmhrf"]
+
+[node name="MainMenu" type="Control" unique_id=56784237]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmhrf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1382747444]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.40784314, 0.5686275, 0.65882355, 1)
+
+[node name="title" type="Label" parent="." unique_id=1157559195]
+layout_mode = 0
+offset_top = 240.0
+offset_right = 1920.0
+offset_bottom = 560.0
+text = "Under the Sea"
+label_settings = SubResource("LabelSettings_cmhrf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="play" type="Button" parent="." unique_id=1980460937]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="quit" type="Button" parent="." unique_id=1457970492]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
