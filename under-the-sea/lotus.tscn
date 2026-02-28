@@ -59,7 +59,8 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=1174983582]
 
 [node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516]
-position = Vector2(320, 960)
+z_index = 2
+position = Vector2(160, 920)
 scale = Vector2(5, 5)
 texture = ExtResource("1_7fvev")
 script = ExtResource("2_wa6o0")
@@ -82,6 +83,7 @@ scale = Vector2(0.9999998, 0.9999998)
 transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
 
 [node name="lotusbox" type="CanvasLayer" parent="lotus_sprout" unique_id=1347857453]
+layer = -1
 scale = Vector2(0.9999998, 0.9999998)
 transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
 script = ExtResource("17_mp5ct")
