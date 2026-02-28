@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cqfnejxwniygc" path="res://Assets/lotus_sprout_frames/03.png" id="14_yhdq5"]
 [ext_resource type="Texture2D" uid="uid://bcbx1wg0qnks0" path="res://Assets/lotus_sprout_frames/13.png" id="15_h7yah"]
 [ext_resource type="Script" uid="uid://clswi8clupyuq" path="res://resourcestats.gd" id="16_ouaj1"]
-[ext_resource type="Script" uid="uid://cps80lyclkdpf" path="res://lotusbox.gd" id="17_mp5ct"]
+[ext_resource type="Script" path="res://lotusbox.gd" id="17_mp5ct"]
 
 [sub_resource type="Animation" id="Animation_m2fwi"]
 length = 14.0
