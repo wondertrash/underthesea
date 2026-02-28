@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://do203jc4sj56v"]
+
+[ext_resource type="Texture2D" uid="uid://c3ek7dkj6e6xu" path="res://Assets/lotus_sprout_frames/00.png" id="1_7fvev"]
+[ext_resource type="Script" uid="uid://co2wdm5suk6pg" path="res://lotus_sprout.gd" id="2_wa6o0"]
+
+[node name="Node2D" type="Node2D" unique_id=1174983582]
+
+[node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516]
+texture = ExtResource("1_7fvev")
+script = ExtResource("2_wa6o0")
