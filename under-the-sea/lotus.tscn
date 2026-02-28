@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c8w7w7rboomj1" path="res://Assets/lotus_sprout_frames/32.png" id="13_mp5ct"]
 [ext_resource type="Texture2D" uid="uid://cqfnejxwniygc" path="res://Assets/lotus_sprout_frames/03.png" id="14_yhdq5"]
 [ext_resource type="Texture2D" uid="uid://bcbx1wg0qnks0" path="res://Assets/lotus_sprout_frames/13.png" id="15_h7yah"]
+[ext_resource type="Script" uid="uid://clswi8clupyuq" path="res://resourcestats.gd" id="16_ouaj1"]
 
 [sub_resource type="Animation" id="Animation_m2fwi"]
 length = 14.0
@@ -57,7 +58,7 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=1174983582]
 
 [node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516]
-position = Vector2(320, 240)
+position = Vector2(320, 540)
 scale = Vector2(5, 5)
 texture = ExtResource("1_7fvev")
 script = ExtResource("2_wa6o0")
@@ -65,3 +66,16 @@ script = ExtResource("2_wa6o0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="lotus_sprout" unique_id=682175387]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5gj2m")
+
+[node name="resourcestats" type="CanvasLayer" parent="lotus_sprout" unique_id=262927459 groups=["player"]]
+scale = Vector2(0.99999964, 0.99999964)
+transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
+script = ExtResource("16_ouaj1")
+
+[node name="store" type="CanvasLayer" parent="lotus_sprout" unique_id=1399020827]
+scale = Vector2(0.99999964, 0.99999964)
+transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
+
+[node name="chatlog" type="CanvasLayer" parent="lotus_sprout" unique_id=2132311036]
+scale = Vector2(0.9999998, 0.9999998)
+transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
