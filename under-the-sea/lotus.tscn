@@ -60,7 +60,7 @@ _data = {
 
 [node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516]
 z_index = 2
-position = Vector2(160, 920)
+position = Vector2(160, 930)
 scale = Vector2(5, 5)
 texture = ExtResource("1_7fvev")
 script = ExtResource("2_wa6o0")
@@ -87,3 +87,4 @@ layer = -1
 scale = Vector2(0.9999998, 0.9999998)
 transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
 script = ExtResource("17_mp5ct")
+lotusbox_position = Vector2(20, 96)
