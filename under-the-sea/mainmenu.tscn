@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d1vksyd07enty" path="res://Assets/whiteflower/flower.png" id="5_dihg0"]
 [ext_resource type="Texture2D" uid="uid://b433sg670y5vi" path="res://Assets/whiteflower/flower2.png" id="6_rqglp"]
 [ext_resource type="Texture2D" uid="uid://dcpl5h4hshyf1" path="res://Assets/whiteflower/flower3.png" id="7_0y70q"]
+[ext_resource type="Script" uid="uid://dts6cxhfvfd3b" path="res://soundtrack.gd" id="8_dihg0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cmhrf"]
 font = ExtResource("2_d2nv2")
@@ -160,6 +161,9 @@ script = ExtResource("3_wgsso")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="flower2" unique_id=1937567357]
 libraries/ = SubResource("AnimationLibrary_wgsso")
+
+[node name="soundtrack" type="AudioStreamPlayer" parent="." unique_id=915616666]
+script = ExtResource("8_dihg0")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

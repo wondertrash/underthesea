@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://c4g4d6mbg2n5l" path="res://events.gd" id="17_yhdq5"]
 [ext_resource type="Script" uid="uid://dm23nvsgrwg40" path="res://inventory.gd" id="20_tot7q"]
 [ext_resource type="Script" uid="uid://7dmbns6clxuy" path="res://refresh.gd" id="21_bkhoc"]
+[ext_resource type="Script" uid="uid://dts6cxhfvfd3b" path="res://soundtrack.gd" id="22_ipm3t"]
 
 [sub_resource type="Animation" id="Animation_m2fwi"]
 length = 14.0
@@ -100,3 +101,6 @@ script = ExtResource("20_tot7q")
 
 [node name="refresh" type="CanvasLayer" parent="." unique_id=492100556]
 script = ExtResource("21_bkhoc")
+
+[node name="soundtrack" type="AudioStreamPlayer" parent="." unique_id=1994729334]
+script = ExtResource("22_ipm3t")

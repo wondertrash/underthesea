@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://yadvdfhrdqix" path="res://gameover.gd" id="1_tpdqf"]
 [ext_resource type="FontFile" uid="uid://sac3gu7ivysr" path="res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_eeur3"]
+[ext_resource type="Script" uid="uid://dts6cxhfvfd3b" path="res://soundtrack.gd" id="3_eeur3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tpdqf"]
 font = ExtResource("2_eeur3")
@@ -113,6 +114,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wgsso")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_igs2m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3pujl")
 text = "Quit"
+
+[node name="soundtrack" type="AudioStreamPlayer" parent="." unique_id=1440221974]
+script = ExtResource("3_eeur3")
 
 [connection signal="pressed" from="playagain" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
