@@ -2,6 +2,7 @@ extends CanvasLayer
 @onready var player = get_tree().get_first_node_in_group("player")
 @export var events_size: Vector2 = Vector2(1080, 340)
 @export var events_position: Vector2 = Vector2(384, 670)
+var font = load("res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf")
 var panel: Panel
 var background: ColorRect
 var structure_container = Control.new()
@@ -52,6 +53,8 @@ func _ready() -> void:
 		button.text = "%s (%s)" % [item_name, ", ".join(costs)]
 		button.position = Vector2(col * (btn_width + padding) + padding, row * (btn_height + padding) + padding)
 		button.size = Vector2(btn_width, btn_height)
+		button.add_theme_font_override("font", font)
+		button.add_theme_font_size_override("font_size", 18)
 		button.modulate = Color(1, 1, 1)
 		button.pressed.connect(_craft_item.bind(item_name))
 		panel.add_child(button)

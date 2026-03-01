@@ -2,6 +2,7 @@ extends CanvasLayer
 @export var events_size: Vector2 = Vector2(420, 640)
 @export var events_position: Vector2 = Vector2(1480, 16)
 var background = ColorRect
+var font = load("res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf")
 var structure_container = Control
 var fish_label: Label
 var jellyfish_label: Label
@@ -31,7 +32,9 @@ func _add_item(item_key: String, texture_path: String, offset: Vector2) -> void:
 	img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	add_child(img)
 	var label = Label.new()
+	label.add_theme_font_override("font", font)
 	label.add_theme_font_size_override("font_size", 64)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.position = base_pos + Vector2(288, 32)
 	label.text = "0"
 	add_child(label)

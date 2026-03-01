@@ -4,6 +4,7 @@ extends CanvasLayer
 var background = ColorRect
 var structure_container = Control
 @onready var player = get_tree().get_first_node_in_group("player")
+var font = load("res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf")
 var is_fishing: bool = false
 var feedback_label: Label
 var fisherman_button: TextureButton
@@ -59,6 +60,7 @@ func _ready() -> void:
 	feedback_label.position = events_position + Vector2(380, 320)
 	feedback_label.size = Vector2(300, 40)
 	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	feedback_label.add_theme_font_override("font", font)
 	feedback_label.add_theme_font_size_override("font_size", 24)
 	feedback_label.text = ""
 	add_child(feedback_label)
