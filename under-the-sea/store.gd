@@ -6,15 +6,15 @@ var panel: Panel
 var background: ColorRect
 var structure_container = Control.new()
 var recipes = {
-	"Standard Bait": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "bait"},
-	"Standard Light": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "light"},
-	"Standard Fertilizer": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "fertilizer"},
-	"Quality Bait": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "bait"},
-	"Quality Light": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "light"},
-	"Quality Fertilizer": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "fertilizer"},
-	"Deluxe Bait": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "bait"},
-	"Deluxe Light": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "light"},
-	"Deluxe Fertilizer": {"fish": 0, "jellyfish": 0, "turtle": 0, "type": "fertilizer"}
+	"Standard Bait": {"fish": 3, "jellyfish": 0, "turtle": 0, "type": "bait"},
+	"Standard Light": {"fish": 2, "jellyfish": 0, "turtle": 0, "type": "light"},
+	"Standard Fertilizer": {"fish": 2, "jellyfish": 0, "turtle": 0, "type": "fertilizer"},
+	"Quality Bait": {"fish": 2, "jellyfish": 2, "turtle": 0, "type": "bait"},
+	"Quality Light": {"fish": 1, "jellyfish": 2, "turtle": 0, "type": "light"},
+	"Quality Fertilizer": {"fish": 1, "jellyfish": 2, "turtle": 0, "type": "fertilizer"},
+	"Deluxe Bait": {"fish": 3, "jellyfish": 3, "turtle": 1, "type": "bait"},
+	"Deluxe Light": {"fish": 2, "jellyfish": 3, "turtle": 1, "type": "light"},
+	"Deluxe Fertilizer": {"fish": 2, "jellyfish": 3, "turtle": 1, "type": "fertilizer"}
 }
 func _ready() -> void:
 	background = ColorRect.new()
@@ -36,7 +36,11 @@ func _ready() -> void:
 	panel.visible = true
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(panel)
-	var y_pos = 10
+	var col = 0
+	var row = 0
+	var btn_width = 347
+	var btn_height = 100
+	var padding = 10
 	for item_name in recipes.keys():
 		var recipe = recipes[item_name]
 		var button = Button.new()
@@ -45,11 +49,15 @@ func _ready() -> void:
 		if recipe["jellyfish"] > 0: costs.append("J:%d" % recipe["jellyfish"])
 		if recipe["turtle"] > 0: costs.append("T:%d" % recipe["turtle"])
 		button.text = "%s (%s)" % [item_name, ", ".join(costs)]
-		button.position = Vector2(10, y_pos)
-		button.size = Vector2(330, 35)
+		button.position = Vector2(col * (btn_width + padding) + padding, row * (btn_height + padding) + padding)
+		button.size = Vector2(btn_width, btn_height)
+		button.modulate = Color(0.62, 0.76, 0.29)
 		button.pressed.connect(_craft_item.bind(item_name))
 		panel.add_child(button)
-		y_pos += 40
+		col += 1
+		if col >= 3:
+			col = 0
+			row += 1
 func _craft_item(item_name: String):
 	var recipe = recipes[item_name]
 	var can_craft = true
