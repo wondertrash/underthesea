@@ -1,5 +1,10 @@
 extends Sprite2D
 @onready var lotus_sprout_anim: AnimationPlayer = $AnimationPlayer
+var inventory = {
+	"fish": 0,
+	"jellyfish": 0,
+	"turtle": 0
+}
 func _ready() -> void:
 	pass
 func _process(delta: float) -> void:

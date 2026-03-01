@@ -33,6 +33,7 @@ func _ready() -> void:
 	panel = Panel.new()
 	panel.position = Vector2(viewport_size.x * 0.5 - 576, viewport_size.y * 0.5 + 130)
 	panel.size = Vector2(1080, 340)
+	panel.modulate = Color(1, 1, 1)
 	panel.visible = true
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(panel)

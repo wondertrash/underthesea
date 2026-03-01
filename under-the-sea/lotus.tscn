@@ -62,7 +62,7 @@ _data = {
 
 [node name="Node2D" type="Node2D" unique_id=1174983582]
 
-[node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516]
+[node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516 groups=["player"]]
 z_index = 2
 position = Vector2(180, 930)
 scale = Vector2(5, 5)
@@ -73,7 +73,7 @@ script = ExtResource("2_wa6o0")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5gj2m")
 
-[node name="resourcestats" type="CanvasLayer" parent="." unique_id=262927459 groups=["player"]]
+[node name="resourcestats" type="CanvasLayer" parent="." unique_id=262927459]
 scale = Vector2(0.99999964, 0.99999964)
 transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
 script = ExtResource("16_ouaj1")
