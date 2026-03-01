@@ -7,7 +7,7 @@ func _ready() -> void:
 	background = ColorRect.new()
 	background.position = lotusbox_position
 	background.size = lotusbox_size
-	background.color = Color(0.1, 0.1, 0.1, 0.8)
+	background.color = Color(0.78, 0.86, 0.75)
 	add_child(background)
 	var border = ColorRect.new()
 	border.position = lotusbox_position - Vector2(2, 2)

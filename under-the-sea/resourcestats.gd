@@ -46,6 +46,6 @@ func add_sunlight(amount: float) -> void:
 func _trigger_game_over() -> void:
 	game_over = true
 	var player = get_tree().get_first_node_in_group("player")
-	var count = player.inventory["turtle"] if player else 0
+	var count = player.lifetime_turtles if player else 0
 	load("res://gameover.gd").turtle_count = count
 	get_tree().change_scene_to_file("res://gameover.tscn")

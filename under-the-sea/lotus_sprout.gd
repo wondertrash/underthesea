@@ -6,6 +6,7 @@ var inventory = {
 	"turtle": 0
 }
 var current_bait: String = "none"
+var lifetime_turtles = 0
 func _ready() -> void:
 	pass
 func _process(delta: float) -> void:

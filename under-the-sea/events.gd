@@ -60,6 +60,8 @@ func _do_catch() -> void:
 		feedback_label.text = "Nothing..."
 	else:
 		player.inventory[result] += 1
+		if result == "turtle":
+			player.lifetime_turtles += 1
 		feedback_label.text = "You caught a %s!" % result
 	await get_tree().create_timer(2.5).timeout
 	feedback_label.text = ""
