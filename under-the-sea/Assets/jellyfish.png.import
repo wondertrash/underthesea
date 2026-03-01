@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5nci2gkspgn5"
-path="res://.godot/imported/New Piskel-2.png.png-62365e65039dd88d72bf299f23160611.ctex"
+uid="uid://p7b13yhllodc"
+path="res://.godot/imported/jellyfish.png-a9c609aad8d16a86e12a13ef1a39f1a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/New Piskel-2.png.png"
-dest_files=["res://.godot/imported/New Piskel-2.png.png-62365e65039dd88d72bf299f23160611.ctex"]
+source_file="res://Assets/jellyfish.png"
+dest_files=["res://.godot/imported/jellyfish.png-a9c609aad8d16a86e12a13ef1a39f1a4.ctex"]
 
 [params]
 
