@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bcbx1wg0qnks0" path="res://Assets/lotus_sprout_frames/13.png" id="15_h7yah"]
 [ext_resource type="Script" uid="uid://clswi8clupyuq" path="res://resourcestats.gd" id="16_ouaj1"]
 [ext_resource type="Script" uid="uid://cps80lyclkdpf" path="res://lotusbox.gd" id="17_mp5ct"]
+[ext_resource type="Script" uid="uid://c4g4d6mbg2n5l" path="res://events.gd" id="17_yhdq5"]
 
 [sub_resource type="Animation" id="Animation_m2fwi"]
 length = 14.0
@@ -60,7 +61,7 @@ _data = {
 
 [node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516]
 z_index = 2
-position = Vector2(160, 930)
+position = Vector2(180, 930)
 scale = Vector2(5, 5)
 texture = ExtResource("1_7fvev")
 script = ExtResource("2_wa6o0")
@@ -78,13 +79,14 @@ script = ExtResource("16_ouaj1")
 scale = Vector2(0.99999964, 0.99999964)
 transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
 
-[node name="chatlog" type="CanvasLayer" parent="lotus_sprout" unique_id=2132311036]
+[node name="events" type="CanvasLayer" parent="lotus_sprout" unique_id=2132311036]
 scale = Vector2(0.9999998, 0.9999998)
 transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
+script = ExtResource("17_yhdq5")
 
 [node name="lotusbox" type="CanvasLayer" parent="lotus_sprout" unique_id=1347857453]
 layer = -1
 scale = Vector2(0.9999998, 0.9999998)
 transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
 script = ExtResource("17_mp5ct")
-lotusbox_position = Vector2(20, 96)
+lotusbox_position = Vector2(10, 90)

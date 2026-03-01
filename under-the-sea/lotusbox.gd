@@ -1,6 +1,6 @@
 extends CanvasLayer
-@export var lotusbox_size: Vector2 = Vector2(320, 920)
-@export var lotusbox_position: Vector2 = Vector2(16, 80)
+@export var lotusbox_size: Vector2 = Vector2(360, 920)
+@export var lotusbox_position: Vector2 = Vector2(8, 80)
 var background = ColorRect
 var structure_container = Control
 func _ready() -> void:
