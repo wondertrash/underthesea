@@ -8,7 +8,6 @@ var inventory = {
 var current_bait: String = "none"
 var lifetime_turtles = 0
 func _ready() -> void:
-	pass
+	lotus_sprout_anim.play("grow")
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("grow"):
-		lotus_sprout_anim.play("grow")
+	pass

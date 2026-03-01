@@ -35,8 +35,8 @@ func _ready() -> void:
 	add_child(dock)
 	fisherman_button = TextureButton.new()
 	fisherman_button.texture_normal = load("res://Assets/fisherman.png")
-	fisherman_button.position = events_position + Vector2(16, 8)
-	fisherman_button.size = Vector2(512, 512)
+	fisherman_button.position = events_position + Vector2(320, 192)
+	fisherman_button.size = Vector2(256, 256)
 	fisherman_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 	fisherman_button.pressed.connect(_on_fisherman_clicked)
 	add_child(fisherman_button)
