@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://yadvdfhrdqix" path="res://gameover.gd" id="1_tpdqf"]
 [ext_resource type="FontFile" uid="uid://sac3gu7ivysr" path="res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_eeur3"]
 [ext_resource type="Script" uid="uid://dts6cxhfvfd3b" path="res://soundtrack.gd" id="3_eeur3"]
+[ext_resource type="Texture2D" uid="uid://bi21s25e3ho7b" path="res://Assets/whiteflower/flower1.png" id="3_g1o2j"]
+[ext_resource type="Script" uid="uid://cmmwsob78h6dt" path="res://flower1.gd" id="4_g1o2j"]
+[ext_resource type="Texture2D" uid="uid://d1vksyd07enty" path="res://Assets/whiteflower/flower.png" id="5_b7a41"]
+[ext_resource type="Texture2D" uid="uid://b433sg670y5vi" path="res://Assets/whiteflower/flower2.png" id="6_7nmon"]
+[ext_resource type="Texture2D" uid="uid://dcpl5h4hshyf1" path="res://Assets/whiteflower/flower3.png" id="7_yximd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tpdqf"]
 font = ExtResource("2_eeur3")
@@ -50,6 +55,60 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_qrn07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_g1o2j")]
+}
+
+[sub_resource type="Animation" id="Animation_d2nv2"]
+resource_name = "bloom"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_b7a41"), ExtResource("3_g1o2j"), ExtResource("6_7nmon"), ExtResource("7_yximd")]
+}
+
+[sub_resource type="Animation" id="Animation_lh3sh"]
+resource_name = "wilt"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_yximd"), ExtResource("6_7nmon"), ExtResource("3_g1o2j"), ExtResource("5_b7a41")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xmx0r"]
+_data = {
+&"RESET": SubResource("Animation_qrn07"),
+&"bloom": SubResource("Animation_d2nv2"),
+&"wilt": SubResource("Animation_lh3sh")
+}
 
 [node name="MainMenu" type="Control" unique_id=56784237]
 layout_mode = 3
@@ -114,6 +173,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wgsso")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_igs2m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3pujl")
 text = "Quit"
+
+[node name="flower" type="Sprite2D" parent="." unique_id=1310528780]
+position = Vector2(240, 680)
+scale = Vector2(7, 7)
+texture = ExtResource("3_g1o2j")
+script = ExtResource("4_g1o2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="flower" unique_id=268446051]
+libraries/ = SubResource("AnimationLibrary_xmx0r")
+
+[node name="flower1" type="Sprite2D" parent="." unique_id=1648071147]
+position = Vector2(1680, 680)
+scale = Vector2(7, 7)
+texture = ExtResource("3_g1o2j")
+script = ExtResource("4_g1o2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="flower1" unique_id=1019213016]
+libraries/ = SubResource("AnimationLibrary_xmx0r")
 
 [node name="soundtrack" type="AudioStreamPlayer" parent="." unique_id=1440221974]
 script = ExtResource("3_eeur3")
