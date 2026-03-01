@@ -5,7 +5,7 @@ var background = TextureRect
 var structure_container = Control
 func _ready() -> void:
 	background = TextureRect.new()
-	background.texture = load("res://Assets/water.png")
+	background.texture = load("res://Assets/lotus_backdrop.png")
 	background.position = lotusbox_position
 	background.size = lotusbox_size
 	background.stretch_mode = TextureRect.STRETCH_SCALE

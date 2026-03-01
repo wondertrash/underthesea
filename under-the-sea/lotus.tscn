@@ -22,6 +22,34 @@
 [ext_resource type="Script" uid="uid://dm23nvsgrwg40" path="res://inventory.gd" id="20_tot7q"]
 [ext_resource type="Script" uid="uid://7dmbns6clxuy" path="res://refresh.gd" id="21_bkhoc"]
 [ext_resource type="Script" uid="uid://dts6cxhfvfd3b" path="res://soundtrack.gd" id="22_ipm3t"]
+[ext_resource type="Texture2D" uid="uid://cg8k4fcssucaw" path="res://Assets/vines/vine1.png" id="23_jnmhj"]
+[ext_resource type="Script" uid="uid://d0gqgtwsabniv" path="res://vines.gd" id="23_xut6m"]
+[ext_resource type="Texture2D" uid="uid://bcdb44ucid2v2" path="res://Assets/vines/vine2.png" id="25_48lbb"]
+[ext_resource type="Texture2D" uid="uid://btsj1x45fdshn" path="res://Assets/vines/vine3.png" id="26_77umu"]
+[ext_resource type="Script" uid="uid://b333np4yo7fpj" path="res://vines1.gd" id="27_48lbb"]
+[ext_resource type="Texture2D" uid="uid://otfuvbreuiyf" path="res://Assets/vines/vine4.png" id="27_kli7d"]
+[ext_resource type="Script" uid="uid://duyt46dyctc2m" path="res://vines2.gd" id="28_77umu"]
+[ext_resource type="Texture2D" uid="uid://sf3wyo0pw4gt" path="res://Assets/vines/vine5.png" id="28_t1jdj"]
+[ext_resource type="Texture2D" uid="uid://b8c0jvsncrh6m" path="res://Assets/vines/vine6.png" id="29_31t16"]
+[ext_resource type="Script" uid="uid://bxr0eb8uvamo1" path="res://vines3.gd" id="29_kli7d"]
+[ext_resource type="Texture2D" uid="uid://7anyhf5sxeii" path="res://Assets/vines/vine7.png" id="30_713k1"]
+[ext_resource type="Texture2D" uid="uid://b7gu4c5r63evt" path="res://Assets/vines/vine8.png" id="31_4ymlv"]
+[ext_resource type="Texture2D" uid="uid://dw2jjq3nrkcn" path="res://Assets/vines/vine9.png" id="32_n8koc"]
+[ext_resource type="Texture2D" uid="uid://dyrvqj5jrcx5e" path="res://Assets/vines/vine10.png" id="33_v31g1"]
+
+[sub_resource type="GDScript" id="GDScript_kli7d"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="Animation" id="Animation_m2fwi"]
 length = 14.0
@@ -61,7 +89,156 @@ _data = {
 &"grow": SubResource("Animation_el4n2")
 }
 
+[sub_resource type="Animation" id="Animation_ovcvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_jnmhj")]
+}
+
+[sub_resource type="Animation" id="Animation_a3sle"]
+resource_name = "vine"
+length = 23.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("23_jnmhj"), ExtResource("25_48lbb"), ExtResource("26_77umu"), ExtResource("27_kli7d"), ExtResource("28_t1jdj"), ExtResource("29_31t16"), ExtResource("30_713k1"), ExtResource("31_4ymlv"), ExtResource("32_n8koc"), ExtResource("33_v31g1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4ah7"]
+_data = {
+&"RESET": SubResource("Animation_ovcvx"),
+&"vine": SubResource("Animation_a3sle")
+}
+
+[sub_resource type="Animation" id="Animation_jnmhj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_48lbb"]
+resource_name = "vine1"
+length = 33.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("23_jnmhj"), ExtResource("25_48lbb"), ExtResource("26_77umu"), ExtResource("27_kli7d"), ExtResource("28_t1jdj"), ExtResource("29_31t16"), ExtResource("30_713k1"), ExtResource("31_4ymlv"), ExtResource("32_n8koc"), ExtResource("33_v31g1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77umu"]
+_data = {
+&"RESET": SubResource("Animation_jnmhj"),
+&"vine1": SubResource("Animation_48lbb")
+}
+
+[sub_resource type="Animation" id="Animation_t1jdj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_31t16"]
+resource_name = "vine2"
+length = 43.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("23_jnmhj"), ExtResource("25_48lbb"), ExtResource("26_77umu"), ExtResource("27_kli7d"), ExtResource("28_t1jdj"), ExtResource("29_31t16"), ExtResource("30_713k1"), ExtResource("31_4ymlv"), ExtResource("32_n8koc"), ExtResource("33_v31g1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_713k1"]
+_data = {
+&"RESET": SubResource("Animation_t1jdj"),
+&"vine2": SubResource("Animation_31t16")
+}
+
+[sub_resource type="Animation" id="Animation_kli7d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_713k1"]
+resource_name = "vine3"
+length = 53.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("23_jnmhj"), ExtResource("25_48lbb"), ExtResource("26_77umu"), ExtResource("27_kli7d"), ExtResource("28_t1jdj"), ExtResource("29_31t16"), ExtResource("30_713k1"), ExtResource("31_4ymlv"), ExtResource("32_n8koc"), ExtResource("33_v31g1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ymlv"]
+_data = {
+&"RESET": SubResource("Animation_kli7d"),
+&"vine3": SubResource("Animation_713k1")
+}
+
 [node name="Node2D" type="Node2D" unique_id=1174983582]
+script = SubResource("GDScript_kli7d")
 
 [node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516 groups=["player"]]
 z_index = 2
@@ -73,6 +250,39 @@ script = ExtResource("2_wa6o0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="lotus_sprout" unique_id=682175387]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5gj2m")
+
+[node name="vines" type="Sprite2D" parent="." unique_id=404933297]
+position = Vector2(180, 944)
+scale = Vector2(5, 5)
+texture = ExtResource("23_jnmhj")
+script = ExtResource("23_xut6m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="vines" unique_id=149745263]
+libraries/ = SubResource("AnimationLibrary_i4ah7")
+
+[node name="vines1" type="Sprite2D" parent="." unique_id=2073286433]
+position = Vector2(180, 784)
+scale = Vector2(5, 5)
+script = ExtResource("27_48lbb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="vines1" unique_id=1852736127]
+libraries/ = SubResource("AnimationLibrary_77umu")
+
+[node name="vines2" type="Sprite2D" parent="." unique_id=1123916829]
+position = Vector2(180, 624)
+scale = Vector2(5, 5)
+script = ExtResource("28_77umu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="vines2" unique_id=254457613]
+libraries/ = SubResource("AnimationLibrary_713k1")
+
+[node name="vines3" type="Sprite2D" parent="." unique_id=1990923575]
+position = Vector2(180, 464)
+scale = Vector2(5, 5)
+script = ExtResource("29_kli7d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="vines3" unique_id=717373491]
+libraries/ = SubResource("AnimationLibrary_4ymlv")
 
 [node name="resourcestats" type="CanvasLayer" parent="." unique_id=262927459 groups=["resourcestats"]]
 scale = Vector2(0.99999964, 0.99999964)
