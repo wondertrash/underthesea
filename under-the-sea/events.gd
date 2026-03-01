@@ -27,12 +27,12 @@ func _ready() -> void:
 	add_child(border)
 	fisherman_button = Button.new()
 	fisherman_button.text = "Fisherman"
-	fisherman_button.position = events_position + Vector2(400, 250)#change position
-	fisherman_button.size = Vector2(150, 60)#change size
+	fisherman_button.position = events_position + Vector2(400, 250)
+	fisherman_button.size = Vector2(150, 60)
 	fisherman_button.pressed.connect(_on_fisherman_clicked)
 	add_child(fisherman_button)
 	feedback_label = Label.new()
-	feedback_label.position = events_position + Vector2(370, 320)#change position
+	feedback_label.position = events_position + Vector2(370, 320)
 	feedback_label.size = Vector2(300, 40)
 	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	feedback_label.add_theme_font_size_override("font_size", 18)
@@ -61,7 +61,7 @@ func _do_catch() -> void:
 	else:
 		player.inventory[result] += 1
 		feedback_label.text = "You caught a %s!" % result
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.5).timeout
 	feedback_label.text = ""
 	is_fishing = false
 	fisherman_button.disabled = false

@@ -19,13 +19,13 @@ func _ready() -> void:
 	add_child(border)
 	var title = Label.new()
 	title.text = "Active Bait"
-	title.position = events_position + Vector2(20, 20)#change
-	title.add_theme_font_size_override("font_size", 20)
+	title.position = events_position + Vector2(88, 20)
+	title.add_theme_font_size_override("font_size", 48)
 	add_child(title)
 	bait_label = Label.new()
 	bait_label.text = "None"
-	bait_label.position = events_position + Vector2(20, 60)#change
-	bait_label.add_theme_font_size_override("font_size", 28)
+	bait_label.position = events_position + Vector2(160, 80)
+	bait_label.add_theme_font_size_override("font_size", 32)
 	add_child(bait_label)
 func _process(_delta: float) -> void:
 	if player:

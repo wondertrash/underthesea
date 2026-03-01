@@ -6,8 +6,8 @@ var sunlight_bg: ColorRect
 var nutrients: float = 255.0
 var sunlight: float = 255.0
 var max_value: float = 255.0
-var nutrients_drain: float = 2.8
-var sunlight_drain: float = 6.4
+var nutrients_drain: float = 2.4
+var sunlight_drain: float = 5.6
 var game_over: bool = false
 func _ready() -> void:
 	nutrients_bg = ColorRect.new()
