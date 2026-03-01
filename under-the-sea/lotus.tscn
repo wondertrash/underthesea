@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://c2bty4wx1kkt2" path="res://store.gd" id="17_h7yah"]
 [ext_resource type="Script" uid="uid://cps80lyclkdpf" path="res://lotusbox.gd" id="17_mp5ct"]
 [ext_resource type="Script" uid="uid://c4g4d6mbg2n5l" path="res://events.gd" id="17_yhdq5"]
+[ext_resource type="Script" uid="uid://dm23nvsgrwg40" path="res://inventory.gd" id="20_tot7q"]
+[ext_resource type="Script" uid="uid://7dmbns6clxuy" path="res://refresh.gd" id="21_bkhoc"]
 
 [sub_resource type="Animation" id="Animation_m2fwi"]
 length = 14.0
@@ -71,24 +73,30 @@ script = ExtResource("2_wa6o0")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5gj2m")
 
-[node name="resourcestats" type="CanvasLayer" parent="lotus_sprout" unique_id=262927459 groups=["player"]]
+[node name="resourcestats" type="CanvasLayer" parent="." unique_id=262927459 groups=["player"]]
 scale = Vector2(0.99999964, 0.99999964)
 transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
 script = ExtResource("16_ouaj1")
 
-[node name="store" type="CanvasLayer" parent="lotus_sprout" unique_id=1399020827]
+[node name="store" type="CanvasLayer" parent="." unique_id=1399020827]
 scale = Vector2(0.99999964, 0.99999964)
 transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
 script = ExtResource("17_h7yah")
 
-[node name="events" type="CanvasLayer" parent="lotus_sprout" unique_id=2132311036]
+[node name="events" type="CanvasLayer" parent="." unique_id=2132311036]
 scale = Vector2(0.9999998, 0.9999998)
 transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
 script = ExtResource("17_yhdq5")
 
-[node name="lotusbox" type="CanvasLayer" parent="lotus_sprout" unique_id=1347857453]
+[node name="lotusbox" type="CanvasLayer" parent="." unique_id=1347857453]
 layer = -1
 scale = Vector2(0.9999998, 0.9999998)
 transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
 script = ExtResource("17_mp5ct")
 lotusbox_position = Vector2(10, 90)
+
+[node name="inventory" type="CanvasLayer" parent="." unique_id=1219730320]
+script = ExtResource("20_tot7q")
+
+[node name="refresh" type="CanvasLayer" parent="." unique_id=492100556]
+script = ExtResource("21_bkhoc")
