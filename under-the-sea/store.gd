@@ -33,7 +33,7 @@ func _ready() -> void:
 	panel = Panel.new()
 	panel.position = Vector2(viewport_size.x * 0.5 - 576, viewport_size.y * 0.5 + 130)
 	panel.size = Vector2(1080, 340)
-	panel.modulate = Color(1, 1, 1)
+	panel.modulate = Color(0.62, 0.76, 0.29)
 	panel.visible = true
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(panel)
@@ -52,7 +52,7 @@ func _ready() -> void:
 		button.text = "%s (%s)" % [item_name, ", ".join(costs)]
 		button.position = Vector2(col * (btn_width + padding) + padding, row * (btn_height + padding) + padding)
 		button.size = Vector2(btn_width, btn_height)
-		button.modulate = Color(0.62, 0.76, 0.29)
+		button.modulate = Color(1, 1, 1)
 		button.pressed.connect(_craft_item.bind(item_name))
 		panel.add_child(button)
 		col += 1

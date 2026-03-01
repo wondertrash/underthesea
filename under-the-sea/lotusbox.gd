@@ -1,13 +1,14 @@
 extends CanvasLayer
 @export var lotusbox_size: Vector2 = Vector2(360, 920)
 @export var lotusbox_position: Vector2 = Vector2(8, 80)
-var background = ColorRect
+var background = TextureRect
 var structure_container = Control
 func _ready() -> void:
-	background = ColorRect.new()
+	background = TextureRect.new()
+	background.texture = load("res://Assets/water.png")
 	background.position = lotusbox_position
 	background.size = lotusbox_size
-	background.color = Color(0.78, 0.86, 0.75)
+	background.stretch_mode = TextureRect.STRETCH_SCALE
 	add_child(background)
 	var border = ColorRect.new()
 	border.position = lotusbox_position - Vector2(2, 2)
