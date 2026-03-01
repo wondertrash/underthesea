@@ -3,6 +3,8 @@ extends CanvasLayer
 @export var events_position: Vector2 = Vector2(1480, 670)
 var background = ColorRect
 var structure_container = Control
+var bait_label: Label
+@onready var player = get_tree().get_first_node_in_group("player")
 func _ready() -> void:
 	background = ColorRect.new()
 	background.position = events_position
@@ -15,3 +17,20 @@ func _ready() -> void:
 	border.color = Color(0.5, 0.5, 0.5)
 	border.z_index = -1
 	add_child(border)
+	var title = Label.new()
+	title.text = "Active Bait"
+	title.position = events_position + Vector2(20, 20)#change
+	title.add_theme_font_size_override("font_size", 20)
+	add_child(title)
+	bait_label = Label.new()
+	bait_label.text = "None"
+	bait_label.position = events_position + Vector2(20, 60)#change
+	bait_label.add_theme_font_size_override("font_size", 28)
+	add_child(bait_label)
+func _process(_delta: float) -> void:
+	if player:
+		match player.current_bait:
+			"none":     bait_label.text = "None"
+			"standard": bait_label.text = "Standard"
+			"quality":  bait_label.text = "Quality"
+			"deluxe":   bait_label.text = "Deluxe"

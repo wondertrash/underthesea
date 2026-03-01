@@ -5,6 +5,7 @@ var inventory = {
 	"jellyfish": 0,
 	"turtle": 0
 }
+var current_bait: String = "none"
 func _ready() -> void:
 	pass
 func _process(delta: float) -> void:

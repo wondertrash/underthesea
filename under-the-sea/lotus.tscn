@@ -73,7 +73,7 @@ script = ExtResource("2_wa6o0")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5gj2m")
 
-[node name="resourcestats" type="CanvasLayer" parent="." unique_id=262927459]
+[node name="resourcestats" type="CanvasLayer" parent="." unique_id=262927459 groups=["resourcestats"]]
 scale = Vector2(0.99999964, 0.99999964)
 transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
 script = ExtResource("16_ouaj1")

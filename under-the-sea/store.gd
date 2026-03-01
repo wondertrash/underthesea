@@ -7,14 +7,14 @@ var background: ColorRect
 var structure_container = Control.new()
 var recipes = {
 	"Standard Bait": {"fish": 3, "jellyfish": 0, "turtle": 0, "type": "bait"},
-	"Standard Light": {"fish": 2, "jellyfish": 0, "turtle": 0, "type": "light"},
 	"Standard Fertilizer": {"fish": 2, "jellyfish": 0, "turtle": 0, "type": "fertilizer"},
+	"Standard Light": {"fish": 2, "jellyfish": 0, "turtle": 0, "type": "light"},
 	"Quality Bait": {"fish": 2, "jellyfish": 2, "turtle": 0, "type": "bait"},
-	"Quality Light": {"fish": 1, "jellyfish": 2, "turtle": 0, "type": "light"},
 	"Quality Fertilizer": {"fish": 1, "jellyfish": 2, "turtle": 0, "type": "fertilizer"},
+	"Quality Light": {"fish": 1, "jellyfish": 2, "turtle": 0, "type": "light"},
 	"Deluxe Bait": {"fish": 3, "jellyfish": 3, "turtle": 1, "type": "bait"},
-	"Deluxe Light": {"fish": 2, "jellyfish": 3, "turtle": 1, "type": "light"},
-	"Deluxe Fertilizer": {"fish": 2, "jellyfish": 3, "turtle": 1, "type": "fertilizer"}
+	"Deluxe Fertilizer": {"fish": 2, "jellyfish": 3, "turtle": 1, "type": "fertilizer"},
+	"Deluxe Light": {"fish": 2, "jellyfish": 3, "turtle": 1, "type": "light"}
 }
 func _ready() -> void:
 	background = ColorRect.new()
@@ -69,6 +69,20 @@ func _craft_item(item_name: String):
 		player.inventory["fish"] -= recipe["fish"]
 		player.inventory["jellyfish"] -= recipe["jellyfish"]
 		player.inventory["turtle"] -= recipe["turtle"]
+		if recipe["type"] == "bait":
+			if item_name.begins_with("Standard"): player.current_bait = "standard"
+			elif item_name.begins_with("Quality"): player.current_bait = "quality"
+			elif item_name.begins_with("Deluxe"): player.current_bait = "deluxe"
+		var stats = get_tree().get_first_node_in_group("resourcestats")
+		if stats:
+			var tier_bonus = 0.0
+			if item_name.begins_with("Standard"): tier_bonus = 64.0
+			elif item_name.begins_with("Quality"): tier_bonus = 128.0
+			elif item_name.begins_with("Deluxe"): tier_bonus = 192.0
+			if recipe["type"] == "fertilizer":
+				stats.add_nutrients(tier_bonus)
+			elif recipe["type"] == "light":
+				stats.add_sunlight(tier_bonus)
 		panel.modulate = Color(0.5, 1, 0.5)
 		await get_tree().create_timer(0.2).timeout
 		panel.modulate = Color(1, 1, 1)

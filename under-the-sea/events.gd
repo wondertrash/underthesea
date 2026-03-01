@@ -7,11 +7,11 @@ var structure_container = Control
 var is_fishing: bool = false
 var feedback_label: Label
 var fisherman_button: Button
-var catch_rates = {
-	"fish": 0.50,
-	"jellyfish": 0.15,
-	"turtle": 0.05,
-	"nothing": 0.30
+var bait_rates = {
+	"none":     {"fish": 0.60, "jellyfish": 0.10, "turtle": 0.01, "nothing": 0.29},
+	"standard": {"fish": 0.58, "jellyfish": 0.18, "turtle": 0.03, "nothing": 0.21},
+	"quality":  {"fish": 0.50, "jellyfish": 0.35, "turtle": 0.12, "nothing": 0.03},
+	"deluxe":   {"fish": 0.30, "jellyfish": 0.45, "turtle": 0.25, "nothing": 0.00}
 }
 func _ready() -> void:
 	background = ColorRect.new()
@@ -27,12 +27,12 @@ func _ready() -> void:
 	add_child(border)
 	fisherman_button = Button.new()
 	fisherman_button.text = "Fisherman"
-	fisherman_button.position = events_position + Vector2(400, 250)  # TODO: adjust position
-	fisherman_button.size = Vector2(150, 60)                          # TODO: adjust size
+	fisherman_button.position = events_position + Vector2(400, 250)#change position
+	fisherman_button.size = Vector2(150, 60)#change size
 	fisherman_button.pressed.connect(_on_fisherman_clicked)
 	add_child(fisherman_button)
 	feedback_label = Label.new()
-	feedback_label.position = events_position + Vector2(370, 320)  # TODO: adjust position
+	feedback_label.position = events_position + Vector2(370, 320)#change position
 	feedback_label.size = Vector2(300, 40)
 	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	feedback_label.add_theme_font_size_override("font_size", 18)
@@ -45,13 +45,14 @@ func _on_fisherman_clicked() -> void:
 	fisherman_button.disabled = true
 	_do_catch()
 func _do_catch() -> void:
+	var rates = bait_rates[player.current_bait]
 	var roll = randf()
 	var result = ""
-	if roll < catch_rates["turtle"]:
+	if roll < rates["turtle"]:
 		result = "turtle"
-	elif roll < catch_rates["turtle"] + catch_rates["jellyfish"]:
+	elif roll < rates["turtle"] + rates["jellyfish"]:
 		result = "jellyfish"
-	elif roll < catch_rates["turtle"] + catch_rates["jellyfish"] + catch_rates["fish"]:
+	elif roll < rates["turtle"] + rates["jellyfish"] + rates["fish"]:
 		result = "fish"
 	else:
 		result = "nothing"

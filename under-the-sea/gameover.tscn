@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://yadvdfhrdqix" path="res://gameover.gd" id="1_tpdqf"]
 [ext_resource type="FontFile" uid="uid://sac3gu7ivysr" path="res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_eeur3"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_cmhrf"]
+[sub_resource type="LabelSettings" id="LabelSettings_tpdqf"]
 font = ExtResource("2_eeur3")
 font_size = 192
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmhrf"]
+font = ExtResource("2_eeur3")
+font_size = 64
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgsso"]
 bg_color = Color(0.50980395, 0.6313726, 0.7137255, 1)
@@ -59,14 +63,23 @@ script = ExtResource("1_tpdqf")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.40784314, 0.5686275, 0.65882355, 1)
+color = Color(0.35686275, 0.40784314, 0.4392157, 1)
 
 [node name="title" type="Label" parent="." unique_id=1157559195]
 layout_mode = 0
-offset_top = 240.0
+offset_top = 192.0
 offset_right = 1920.0
-offset_bottom = 560.0
-text = "Under the Sea"
+offset_bottom = 512.0
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_tpdqf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="turtleCount" type="Label" parent="." unique_id=984987555]
+layout_mode = 0
+offset_top = 332.0
+offset_right = 1920.0
+offset_bottom = 652.0
 label_settings = SubResource("LabelSettings_cmhrf")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -74,9 +87,9 @@ vertical_alignment = 1
 [node name="playagain" type="Button" parent="." unique_id=1980460937]
 layout_mode = 0
 offset_left = 540.0
-offset_top = 540.0
+offset_top = 556.0
 offset_right = 1340.0
-offset_bottom = 668.0
+offset_bottom = 684.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_eeur3")
@@ -89,9 +102,9 @@ text = "Play Again"
 [node name="quit" type="Button" parent="." unique_id=1420552339]
 layout_mode = 0
 offset_left = 540.0
-offset_top = 720.0
+offset_top = 736.0
 offset_right = 1340.0
-offset_bottom = 848.0
+offset_bottom = 864.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_eeur3")
