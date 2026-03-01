@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://do0syn7oxuyk1" path="res://mainmenu.gd" id="1_cmhrf"]
 [ext_resource type="FontFile" uid="uid://sac3gu7ivysr" path="res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="2_d2nv2"]
+[ext_resource type="Texture2D" uid="uid://bi21s25e3ho7b" path="res://Assets/whiteflower/flower1.png" id="3_at6rn"]
+[ext_resource type="Script" uid="uid://br6h6xeaytypr" path="res://flower.gd" id="3_wgsso"]
+[ext_resource type="Texture2D" uid="uid://d1vksyd07enty" path="res://Assets/whiteflower/flower.png" id="5_dihg0"]
+[ext_resource type="Texture2D" uid="uid://b433sg670y5vi" path="res://Assets/whiteflower/flower2.png" id="6_rqglp"]
+[ext_resource type="Texture2D" uid="uid://dcpl5h4hshyf1" path="res://Assets/whiteflower/flower3.png" id="7_0y70q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cmhrf"]
 font = ExtResource("2_d2nv2")
@@ -46,6 +51,43 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 20
 
+[sub_resource type="Animation" id="Animation_qrn07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_at6rn")]
+}
+
+[sub_resource type="Animation" id="Animation_d2nv2"]
+resource_name = "bloom"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_dihg0"), ExtResource("3_at6rn"), ExtResource("6_rqglp"), ExtResource("7_0y70q")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgsso"]
+_data = {
+&"RESET": SubResource("Animation_qrn07"),
+&"bloom": SubResource("Animation_d2nv2")
+}
+
 [node name="MainMenu" type="Control" unique_id=56784237]
 layout_mode = 3
 anchors_preset = 15
@@ -73,9 +115,9 @@ vertical_alignment = 1
 
 [node name="play" type="Button" parent="." unique_id=1980460937]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 560.0
 offset_top = 540.0
-offset_right = 1340.0
+offset_right = 1360.0
 offset_bottom = 668.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -88,9 +130,9 @@ text = "Play"
 
 [node name="quit" type="Button" parent="." unique_id=1420552339]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 560.0
 offset_top = 720.0
-offset_right = 1340.0
+offset_right = 1360.0
 offset_bottom = 848.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -100,6 +142,24 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wgsso")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_igs2m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3pujl")
 text = "Quit"
+
+[node name="flower" type="Sprite2D" parent="." unique_id=1822828712]
+position = Vector2(240, 680)
+scale = Vector2(7, 7)
+texture = ExtResource("3_at6rn")
+script = ExtResource("3_wgsso")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="flower" unique_id=192618471]
+libraries/ = SubResource("AnimationLibrary_wgsso")
+
+[node name="flower2" type="Sprite2D" parent="." unique_id=212347634]
+position = Vector2(1680, 680)
+scale = Vector2(7, 7)
+texture = ExtResource("3_at6rn")
+script = ExtResource("3_wgsso")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="flower2" unique_id=1937567357]
+libraries/ = SubResource("AnimationLibrary_wgsso")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

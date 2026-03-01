@@ -86,9 +86,9 @@ vertical_alignment = 1
 
 [node name="playagain" type="Button" parent="." unique_id=1980460937]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 560.0
 offset_top = 556.0
-offset_right = 1340.0
+offset_right = 1360.0
 offset_bottom = 684.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -101,9 +101,9 @@ text = "Play Again"
 
 [node name="quit" type="Button" parent="." unique_id=1420552339]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 560.0
 offset_top = 736.0
-offset_right = 1340.0
+offset_right = 1360.0
 offset_bottom = 864.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0gw0bwrogt35"
-path="res://.godot/imported/New Piskel-3.png.png-f2338931e9ef62b1e51f1bee5eacf081.ctex"
+uid="uid://dcpl5h4hshyf1"
+path="res://.godot/imported/flower3.png-7f922d0c7cd51a99c47c0fce35a9668b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/New Piskel-3.png.png"
-dest_files=["res://.godot/imported/New Piskel-3.png.png-f2338931e9ef62b1e51f1bee5eacf081.ctex"]
+source_file="res://Assets/whiteflower/flower3.png"
+dest_files=["res://.godot/imported/flower3.png-7f922d0c7cd51a99c47c0fce35a9668b.ctex"]
 
 [params]
 

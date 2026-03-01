@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://do203jc4sj56v"]
+
+[ext_resource type="Texture2D" uid="uid://c3ek7dkj6e6xu" path="res://Assets/lotus_sprout_frames/00.png" id="1_7fvev"]
+[ext_resource type="Script" uid="uid://co2wdm5suk6pg" path="res://lotus_sprout.gd" id="2_wa6o0"]
+[ext_resource type="Texture2D" uid="uid://d30i0sagwtcj0" path="res://Assets/lotus_sprout_frames/10.png" id="3_ey7s0"]
+[ext_resource type="Texture2D" uid="uid://cw7jnr2gb7j7s" path="res://Assets/lotus_sprout_frames/01.png" id="3_lrs7x"]
+[ext_resource type="Texture2D" uid="uid://bfp0wgb7n5tkt" path="res://Assets/lotus_sprout_frames/20.png" id="4_irftk"]
+[ext_resource type="Texture2D" uid="uid://cefg2w5gmcu5d" path="res://Assets/lotus_sprout_frames/30.png" id="5_irftk"]
+[ext_resource type="Texture2D" uid="uid://b0v35e7lrucug" path="res://Assets/lotus_sprout_frames/11.png" id="6_jyv7p"]
+[ext_resource type="Texture2D" uid="uid://cb17l05cnctrb" path="res://Assets/lotus_sprout_frames/21.png" id="7_rf4kr"]
+[ext_resource type="Texture2D" uid="uid://rm7smehnow6e" path="res://Assets/lotus_sprout_frames/02.png" id="8_y7a4v"]
+[ext_resource type="Texture2D" uid="uid://deho460th8wos" path="res://Assets/lotus_sprout_frames/31.png" id="9_lkh13"]
+[ext_resource type="Texture2D" uid="uid://rygqb2er51u" path="res://Assets/lotus_sprout_frames/12.png" id="9_loavf"]
+[ext_resource type="Texture2D" uid="uid://5akb3007doon" path="res://Assets/lotus_sprout_frames/22.png" id="12_ouaj1"]
+[ext_resource type="Texture2D" uid="uid://c8w7w7rboomj1" path="res://Assets/lotus_sprout_frames/32.png" id="13_mp5ct"]
+[ext_resource type="Texture2D" uid="uid://cqfnejxwniygc" path="res://Assets/lotus_sprout_frames/03.png" id="14_yhdq5"]
+[ext_resource type="Texture2D" uid="uid://bcbx1wg0qnks0" path="res://Assets/lotus_sprout_frames/13.png" id="15_h7yah"]
+[ext_resource type="Script" uid="uid://clswi8clupyuq" path="res://resourcestats.gd" id="16_ouaj1"]
+[ext_resource type="Script" uid="uid://c2bty4wx1kkt2" path="res://store.gd" id="17_h7yah"]
+[ext_resource type="Script" uid="uid://cps80lyclkdpf" path="res://lotusbox.gd" id="17_mp5ct"]
+[ext_resource type="Script" uid="uid://c4g4d6mbg2n5l" path="res://events.gd" id="17_yhdq5"]
+[ext_resource type="Script" uid="uid://dm23nvsgrwg40" path="res://inventory.gd" id="20_tot7q"]
+[ext_resource type="Script" uid="uid://7dmbns6clxuy" path="res://refresh.gd" id="21_bkhoc"]
+
+[sub_resource type="Animation" id="Animation_m2fwi"]
+length = 14.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lotus_sprout:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_7fvev")]
+}
+
+[sub_resource type="Animation" id="Animation_el4n2"]
+resource_name = "grow"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lotus_sprout:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_7fvev"), ExtResource("3_ey7s0"), ExtResource("4_irftk"), ExtResource("5_irftk"), ExtResource("3_lrs7x"), ExtResource("6_jyv7p"), ExtResource("7_rf4kr"), ExtResource("9_lkh13"), ExtResource("8_y7a4v"), ExtResource("9_loavf"), ExtResource("12_ouaj1"), ExtResource("13_mp5ct"), ExtResource("14_yhdq5"), ExtResource("15_h7yah")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5gj2m"]
+_data = {
+&"RESET": SubResource("Animation_m2fwi"),
+&"grow": SubResource("Animation_el4n2")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1174983582]
+
+[node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516 groups=["player"]]
+z_index = 2
+position = Vector2(180, 930)
+scale = Vector2(5, 5)
+texture = ExtResource("1_7fvev")
+script = ExtResource("2_wa6o0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lotus_sprout" unique_id=682175387]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5gj2m")
+
+[node name="resourcestats" type="CanvasLayer" parent="." unique_id=262927459 groups=["resourcestats"]]
+scale = Vector2(0.99999964, 0.99999964)
+transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
+script = ExtResource("16_ouaj1")
+
+[node name="store" type="CanvasLayer" parent="." unique_id=1399020827]
+scale = Vector2(0.99999964, 0.99999964)
+transform = Transform2D(0.99999964, 0, 0, 0.99999964, 0, 0)
+script = ExtResource("17_h7yah")
+
+[node name="events" type="CanvasLayer" parent="." unique_id=2132311036]
+scale = Vector2(0.9999998, 0.9999998)
+transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
+script = ExtResource("17_yhdq5")
+
+[node name="lotusbox" type="CanvasLayer" parent="." unique_id=1347857453]
+layer = -1
+scale = Vector2(0.9999998, 0.9999998)
+transform = Transform2D(0.9999998, 0, 0, 0.9999998, 0, 0)
+script = ExtResource("17_mp5ct")
+lotusbox_position = Vector2(10, 90)
+
+[node name="inventory" type="CanvasLayer" parent="." unique_id=1219730320]
+script = ExtResource("20_tot7q")
+
+[node name="refresh" type="CanvasLayer" parent="." unique_id=492100556]
+script = ExtResource("21_bkhoc")

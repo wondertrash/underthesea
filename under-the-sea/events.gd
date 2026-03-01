@@ -7,8 +7,7 @@ var structure_container = Control
 var is_fishing: bool = false
 var feedback_label: Label
 var fisherman_button: TextureButton
-var wave1: TextureRect
-var wave2: TextureRect
+var dock: TextureRect
 var bait_rates = {
 	"none":     {"fish": 0.60, "jellyfish": 0.10, "turtle": 0.01, "nothing": 0.29},
 	"standard": {"fish": 0.58, "jellyfish": 0.18, "turtle": 0.03, "nothing": 0.21},
@@ -27,37 +26,35 @@ func _ready() -> void:
 	border.color = Color(0.5, 0.5, 0.5)
 	border.z_index = -1
 	add_child(border)
+	dock = TextureRect.new()
+	dock.texture = load("res://Assets/dock.png")
+	dock.position = events_position + Vector2(0, 76)
+	dock.size = Vector2(512, 512)
+	dock.stretch_mode = TextureRect.STRETCH_SCALE
+	add_child(dock)
 	fisherman_button = TextureButton.new()
 	fisherman_button.texture_normal = load("res://Assets/fisherman.png")
-	fisherman_button.position = events_position + Vector2(16, 16)
-	fisherman_button.size = Vector2(256, 256)
+	fisherman_button.position = events_position + Vector2(16, 8)
+	fisherman_button.size = Vector2(512, 512)
 	fisherman_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 	fisherman_button.pressed.connect(_on_fisherman_clicked)
 	add_child(fisherman_button)
-	wave1 = TextureRect.new()
-	wave1.texture = load("res://Assets/wave.png")
-	wave1.position = events_position + Vector2(0, 256)
-	wave1.size = Vector2(270, 384)
-	wave1.stretch_mode = TextureRect.STRETCH_SCALE
-	add_child(wave1)
-	wave2 = TextureRect.new()
-	wave2.texture = load("res://Assets/wave2.png")
-	wave2.position = events_position + Vector2(270, 256)
-	wave2.size = Vector2(270, 384)
-	wave2.stretch_mode = TextureRect.STRETCH_SCALE
-	add_child(wave2)
-	wave1 = TextureRect.new()
-	wave1.texture = load("res://Assets/wave.png")
-	wave1.position = events_position + Vector2(540, 256)
-	wave1.size = Vector2(270, 384)
-	wave1.stretch_mode = TextureRect.STRETCH_SCALE
-	add_child(wave1)
-	wave2 = TextureRect.new()
-	wave2.texture = load("res://Assets/wave2.png")
-	wave2.position = events_position + Vector2(810, 256)
-	wave2.size = Vector2(270, 384)
-	wave2.stretch_mode = TextureRect.STRETCH_SCALE
-	add_child(wave2)
+	var wave_textures = [
+		load("res://Assets/wave.png"),
+		load("res://Assets/wave2.png")
+	]
+	var wave_width = 270
+	var wave_height = 270
+	var wave_y = 372
+	var x = 0
+	while x + wave_width <= events_size.x:
+		var wave = TextureRect.new()
+		wave.texture = wave_textures[(x / wave_width) % 2]
+		wave.position = events_position + Vector2(x, wave_y)
+		wave.size = Vector2(wave_width, wave_height)
+		wave.stretch_mode = TextureRect.STRETCH_SCALE
+		add_child(wave)
+		x += wave_width
 	feedback_label = Label.new()
 	feedback_label.position = events_position + Vector2(380, 320)
 	feedback_label.size = Vector2(300, 40)
