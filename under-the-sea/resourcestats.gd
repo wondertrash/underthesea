@@ -18,7 +18,7 @@ func _ready() -> void:
 	nutrients_bar = ColorRect.new()
 	nutrients_bar.position = Vector2(10, 10)
 	nutrients_bar.size = Vector2(360, 30)
-	nutrients_bar.color = Color(0.8, 0.2, 0.2)
+	nutrients_bar.color = Color(0.92, 0.68, 0.74)
 	add_child(nutrients_bar)
 	sunlight_bg = ColorRect.new()
 	sunlight_bg.position = Vector2(10, 50)
@@ -28,7 +28,7 @@ func _ready() -> void:
 	sunlight_bar = ColorRect.new()
 	sunlight_bar.position = Vector2(10, 50)
 	sunlight_bar.size = Vector2(360, 30)
-	sunlight_bar.color = Color(0.8, 0.6, 0.2)
+	sunlight_bar.color = Color(1, 0.90, 0.73)
 	add_child(sunlight_bar)
 func _process(delta: float) -> void:
 	if game_over:
