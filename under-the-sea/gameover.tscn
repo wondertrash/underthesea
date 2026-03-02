@@ -172,7 +172,7 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_wgsso")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_igs2m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3pujl")
-text = "Quit"
+text = "Return to Main Menu"
 
 [node name="flower" type="Sprite2D" parent="." unique_id=1310528780]
 position = Vector2(240, 680)

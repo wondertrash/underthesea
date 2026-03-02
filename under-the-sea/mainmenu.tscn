@@ -117,9 +117,9 @@ vertical_alignment = 1
 [node name="play" type="Button" parent="." unique_id=1980460937]
 layout_mode = 0
 offset_left = 560.0
-offset_top = 540.0
+offset_top = 630.0
 offset_right = 1360.0
-offset_bottom = 668.0
+offset_bottom = 758.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_d2nv2")
@@ -128,21 +128,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wgsso")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_igs2m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3pujl")
 text = "Play"
-
-[node name="quit" type="Button" parent="." unique_id=1420552339]
-layout_mode = 0
-offset_left = 560.0
-offset_top = 720.0
-offset_right = 1360.0
-offset_bottom = 848.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_d2nv2")
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxFlat_wgsso")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_igs2m")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3pujl")
-text = "Quit"
 
 [node name="flower" type="Sprite2D" parent="." unique_id=1822828712]
 position = Vector2(240, 680)
@@ -166,4 +151,3 @@ libraries/ = SubResource("AnimationLibrary_wgsso")
 script = ExtResource("8_dihg0")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
