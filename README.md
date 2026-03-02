@@ -20,6 +20,8 @@ How many turtles can you catch before the sea claims your garden?
 
 # Credits
 
+**Developers:**
+
 - Yuki Li
 - Tim Sun
 
