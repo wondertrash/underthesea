@@ -34,7 +34,7 @@ func _ready() -> void:
 	panel = Panel.new()
 	panel.position = Vector2(viewport_size.x * 0.5 - 576, viewport_size.y * 0.5 + 130)
 	panel.size = Vector2(1080, 340)
-	panel.modulate = Color(0.62, 0.76, 0.29)
+	panel.modulate = Color(1, 1, 1)
 	panel.visible = true
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(panel)
@@ -50,7 +50,18 @@ func _ready() -> void:
 		if recipe["fish"] > 0: costs.append("F:%d" % recipe["fish"])
 		if recipe["jellyfish"] > 0: costs.append("J:%d" % recipe["jellyfish"])
 		if recipe["turtle"] > 0: costs.append("T:%d" % recipe["turtle"])
-		button.text = "%s (%s)" % [item_name, ", ".join(costs)]
+		var bonus_text = ""
+		if item_name.begins_with("Standard"): bonus_text = "+64"
+		elif item_name.begins_with("Quality"): bonus_text = "+128"
+		elif item_name.begins_with("Deluxe"): bonus_text = "+192"
+		if recipe["type"] == "bait":
+			var bait_desc = ""
+			if item_name.begins_with("Standard"): bait_desc = "A little something to get you started"
+			elif item_name.begins_with("Quality"): bait_desc = "Increases jellyfish & turtle odds"
+			elif item_name.begins_with("Deluxe"): bait_desc = "Guarantees a catch, favours turtles"
+			button.text = "%s\n%s\n%s" % [item_name, ", ".join(costs), bait_desc]
+		else:
+			button.text = "%s\n%s\n%s %s" % [item_name, ", ".join(costs), bonus_text, recipe["type"]]
 		button.position = Vector2(col * (btn_width + padding) + padding, row * (btn_height + padding) + padding)
 		button.size = Vector2(btn_width, btn_height)
 		button.add_theme_font_override("font", font)
@@ -72,10 +83,6 @@ func _craft_item(item_name: String):
 		player.inventory["fish"] -= recipe["fish"]
 		player.inventory["jellyfish"] -= recipe["jellyfish"]
 		player.inventory["turtle"] -= recipe["turtle"]
-		if recipe["type"] == "bait":
-			if item_name.begins_with("Standard"): player.current_bait = "standard"
-			elif item_name.begins_with("Quality"): player.current_bait = "quality"
-			elif item_name.begins_with("Deluxe"): player.current_bait = "deluxe"
 		var stats = get_tree().get_first_node_in_group("resourcestats")
 		if stats:
 			var tier_bonus = 0.0

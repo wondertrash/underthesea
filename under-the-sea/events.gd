@@ -56,6 +56,12 @@ func _ready() -> void:
 		wave.stretch_mode = TextureRect.STRETCH_SCALE
 		add_child(wave)
 		x += wave_width
+	var hint_label = Label.new()
+	hint_label.text = "Click the fisherman to fish!"
+	hint_label.position = events_position + Vector2(256, 192)
+	hint_label.add_theme_font_override("font", load("res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf"))
+	hint_label.add_theme_font_size_override("font_size", 16)
+	add_child(hint_label)
 	feedback_label = Label.new()
 	feedback_label.position = events_position + Vector2(380, 320)
 	feedback_label.size = Vector2(300, 40)
