@@ -1,7 +1,7 @@
 extends CanvasLayer
 @export var events_size: Vector2 = Vector2(420, 640)
 @export var events_position: Vector2 = Vector2(1480, 16)
-var background = ColorRect
+var background = GradientTexture2D
 var font = load("res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf")
 var structure_container = Control
 var fish_label: Label
@@ -9,10 +9,19 @@ var jellyfish_label: Label
 var turtle_label: Label
 @onready var player = get_tree().get_first_node_in_group("player")
 func _ready() -> void:
-	background = ColorRect.new()
+	var grad = Gradient.new()
+	grad.set_color(0, Color(0.59, 0.67, 0.83))
+	grad.set_color(1, Color(0.3, 0.4, 0.6))
+	var grad_tex = GradientTexture2D.new()
+	grad_tex.gradient = grad
+	grad_tex.fill_from = Vector2(0, 0)
+	grad_tex.fill_to = Vector2(0, 1)
+	background = TextureRect.new()
 	background.position = events_position
 	background.size = events_size
-	background.color = Color(0.55, 0.56, 0.69)
+	background.texture = grad_tex
+	background.stretch_mode = TextureRect.STRETCH_SCALE
+	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	add_child(background)
 	var border = ColorRect.new()
 	border.position = events_position - Vector2(2, 2)
