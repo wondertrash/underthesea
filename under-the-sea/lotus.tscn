@@ -242,7 +242,7 @@ script = SubResource("GDScript_kli7d")
 
 [node name="lotus_sprout" type="Sprite2D" parent="." unique_id=245773516 groups=["player"]]
 z_index = 2
-position = Vector2(180, 930)
+position = Vector2(180, 950)
 scale = Vector2(5, 5)
 texture = ExtResource("1_7fvev")
 script = ExtResource("2_wa6o0")
@@ -252,7 +252,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5gj2m")
 
 [node name="vines" type="Sprite2D" parent="." unique_id=404933297]
-position = Vector2(180, 944)
+position = Vector2(180, 964)
 scale = Vector2(5, 5)
 texture = ExtResource("23_jnmhj")
 script = ExtResource("23_xut6m")
@@ -261,7 +261,7 @@ script = ExtResource("23_xut6m")
 libraries/ = SubResource("AnimationLibrary_i4ah7")
 
 [node name="vines1" type="Sprite2D" parent="." unique_id=2073286433]
-position = Vector2(180, 784)
+position = Vector2(180, 804)
 scale = Vector2(5, 5)
 script = ExtResource("27_48lbb")
 
@@ -269,7 +269,7 @@ script = ExtResource("27_48lbb")
 libraries/ = SubResource("AnimationLibrary_77umu")
 
 [node name="vines2" type="Sprite2D" parent="." unique_id=1123916829]
-position = Vector2(180, 624)
+position = Vector2(180, 644)
 scale = Vector2(5, 5)
 script = ExtResource("28_77umu")
 
@@ -277,7 +277,7 @@ script = ExtResource("28_77umu")
 libraries/ = SubResource("AnimationLibrary_713k1")
 
 [node name="vines3" type="Sprite2D" parent="." unique_id=1990923575]
-position = Vector2(180, 464)
+position = Vector2(180, 484)
 scale = Vector2(5, 5)
 script = ExtResource("29_kli7d")
 

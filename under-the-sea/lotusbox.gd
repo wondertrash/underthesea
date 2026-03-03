@@ -1,5 +1,5 @@
 extends CanvasLayer
-@export var lotusbox_size: Vector2 = Vector2(360, 920)
+@export var lotusbox_size: Vector2 = Vector2(360, 940)
 @export var lotusbox_position: Vector2 = Vector2(8, 80)
 var background = TextureRect
 var structure_container = Control

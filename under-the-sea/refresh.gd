@@ -1,5 +1,5 @@
 extends CanvasLayer
-@export var events_size: Vector2 = Vector2(420, 340)
+@export var events_size: Vector2 = Vector2(420, 360)
 @export var events_position: Vector2 = Vector2(1480, 670)
 var background = GradientTexture2D
 var font = load("res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf")
@@ -38,12 +38,12 @@ func _ready() -> void:
 	bait_label.text = "None"
 	bait_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	bait_label.size = Vector2(420, 40)
-	bait_label.position = events_position + Vector2(0, 80)
+	bait_label.position = events_position + Vector2(0, 88)
 	bait_label.add_theme_font_override("font", font)
 	bait_label.add_theme_font_size_override("font_size", 32)
 	add_child(bait_label)
 	bait_pic = TextureRect.new()
-	bait_pic.position = events_position + Vector2(80, 96)
+	bait_pic.position = events_position + Vector2(80, 112)
 	bait_pic.size = Vector2(256, 256)
 	bait_pic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	bait_pic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

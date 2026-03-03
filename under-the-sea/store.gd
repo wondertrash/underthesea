@@ -1,6 +1,6 @@
 extends CanvasLayer
 @onready var player = get_tree().get_first_node_in_group("player")
-@export var events_size: Vector2 = Vector2(1080, 340)
+@export var events_size: Vector2 = Vector2(1080, 360)
 @export var events_position: Vector2 = Vector2(384, 670)
 var font = load("res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf")
 var panel: Panel
@@ -33,7 +33,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	panel = Panel.new()
 	panel.position = Vector2(viewport_size.x * 0.5 - 576, viewport_size.y * 0.5 + 130)
-	panel.size = Vector2(1080, 340)
+	panel.size = Vector2(1080, 360)
 	panel.modulate = Color(1, 1, 1)
 	panel.visible = true
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -41,7 +41,7 @@ func _ready() -> void:
 	var col = 0
 	var row = 0
 	var btn_width = 347
-	var btn_height = 100
+	var btn_height = 107
 	var padding = 10
 	for item_name in recipes.keys():
 		var recipe = recipes[item_name]
@@ -83,6 +83,10 @@ func _craft_item(item_name: String):
 		player.inventory["fish"] -= recipe["fish"]
 		player.inventory["jellyfish"] -= recipe["jellyfish"]
 		player.inventory["turtle"] -= recipe["turtle"]
+		if recipe["type"] == "bait":
+			if item_name.begins_with("Standard"): player.current_bait = "standard"
+			elif item_name.begins_with("Quality"): player.current_bait = "quality"
+			elif item_name.begins_with("Deluxe"): player.current_bait = "deluxe"
 		var stats = get_tree().get_first_node_in_group("resourcestats")
 		if stats:
 			var tier_bonus = 0.0

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -36,4 +37,4 @@ grow={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-environment/defaults/default_clear_color=Color(1, 0.99215686, 0.8156863, 1)
+environment/defaults/default_clear_color=Color(0.44313726, 0.4745098, 0.49411765, 1)
